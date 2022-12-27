@@ -170,6 +170,60 @@ i.decr()
 # above is only a convention. it will not through an error but it is bad practice to follow.
 
 
+# isinstance(O,c) - is used to check whether an object o is an instance of a class c. 
+# issubclass(d,b) - is used to check whether class d has been derived from class b.
+
+# The object class - all classes in python are derived from a ready made base class called object.
+# 
+# Features of inheritance - 
+# 1) Inheritance of existing feature
+# 2) Supressing an existing feature - to implement this hide base class implementation by defining same method in derived class.
+# Extending an existing feature - super().base_class_method()
+# 
+# Types of inheritance -
+# Simple inheritance - class NewIndex is derived from class Index
+# class NewIndex(Index):
+#       def __init__(self):
+#       super().__init__()
+# 
+# Multi-level Inheritance - class HOD is derived from class Professor which is derived from Persont
+# 
+# Multiple Inheritance - class HardwareSales derived from two base classes - Product and Sales
+# 
+#class HardwareSales (Product, Sales):
+#   def __init__(self):
+#         Product.__init__(self)
+#         Sales.__init__(self)
+
+# Diamond problem -  This resutls in ambiguity.
+#       Base class
+#       ___|___
+#      |       |
+# Derived1   Derived2
+#      |       |
+#      |-------|
+#          |
+#          Der class (derived from above two) 
+# 
+# 
+# 
+
+# Abstract Class -  A class from which object can not be created is called Abstract class
+from abc import ABC,abstractmethod  #abc - abstract base classes
+
+class shape(ABC):
+    @abstractmethod
+    def draw(self):
+        pass
+class Rectangle:
+    def draw(self):
+        print("draw rectangle")
+
+
+
+
+
+
 
 
 
