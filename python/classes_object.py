@@ -84,6 +84,95 @@ print(dir()) # prints list of the attributes of current module
 print(dir(math)) #Prints list of attributes of math module
 
 
+# Identifier naming convention-
+# variables and functions not belong to classes starts with lowercase alphabet
+# class names - start with upper case alphabet
+# private identifiers - for the variables which needs to access from same class only - starts with two leading underscores __name,__age,__get_birds()
+# protected indetifiers - for the variables/methods which needs to access within the class and from     derived class (Inherence)  - names starts with single underscore - _address, _maintain_height
+
+# Operator Overloading - 
+# in below ex + operator is overloaded
+
+class Complex :
+
+    def __init__(self,r=0.0,i=0.0) -> None:
+        self.__real=r
+        self.__imag=i
+    
+    def __add__(self,other):
+        z=Complex()
+        z.__real=self.__real+other.__real
+        z.__imag=self.__imag+other.__imag
+
+    def display(self):
+        print(self.__real,self.__imag)
+
+# Here + operator is by __add__(self,other) method and same can be done to substract __sub__(self,other)
+# There are many other operator overlaoding options are available ex - for multiplication __mul__(self,other) , for less than __it__(self,other)
+# 
+# Function overloading is not supported in python. It does not throw an error but takes latest defination of the method
+# 
+# In python every entity is an object 
+#
+
+class Bird:
+    pass
+
+b=Bird()
+
+b.name="Sarthak" # This attribute is created dynamically in Bird class
+
+print(dir(Bird))
+
+# Inheritance and containership (Composition)
+# Containership (composition) - used when two classes have 'has a' relationship ex - college 'has a' professor 
+#  Inheritance - used when two classes have a 'like a' relationship ex - Maruti car is like a car
+
+# Containership - ex Department object is contained in an Employee object.
+
+class Department :
+    pass
+class Employee:
+    def set_Employee(self) -> None:
+        self.dept = Department()
+
+# Inheritance - A new class called derived class can be created to inherit features of an existing class called base class
+# Base class is called super or parent class
+# Derived class is called sub class or child class
+
+# Base class
+class Index:
+    def __init__(self) -> None:
+        self.count=0
+    def display(self):
+        print('count='+str(self._count))
+    def incr(self) :
+        self._count+=1
+
+# Derived class - 
+class NewIndex(Index):
+    def __init__(self):
+        super().__init__() #calling base class constructor
+
+    def decr(self):
+        self.count-=1
+
+i = NewIndex()
+i.incr()
+i.display()
+i.decr()
+
+# In inheritance base class constructor followed by derived class construcotor is called
+
+# var - access it from anywhere in the program 
+#  _var - access it only from within the class or it's subclass.
+#  __var - access it only within the class
+# above is only a convention. it will not through an error but it is bad practice to follow.
+
+
+
+
+
 
 
 
