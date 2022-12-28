@@ -46,3 +46,28 @@ print(next(i))
 print(next(i))
 print(next(i))
 
+# hasattr() - hasattr(s,'__iter__') - it checks if __iter__ is in s object. returns True or False
+
+# user- defined iterators 
+
+
+# Generators - it is very efficient function which create iterators. They use yield statement instead of return statement
+# It remembers state of the function, so next time next() is calledit resumes where it had left off last time.
+# It is useful where we need to perform calculations on the go and wants one result at a time
+def AvgAdj(data):
+    for i in range(0,len(data)-1):
+        yield (data[i] +data[i+1]) / 2
+lst=[10,20,30,40,50]
+for i in AvgAdj(lst):
+    print(i)
+
+# like  list  comprehesions, generator expressions are also created and they are enclosed within () brackets.
+# It is more efficient than list comprehension. it takes less memory since it generates the next element on demand.
+
+print(sum( n * n * n for n in range(20)))
+
+# exit() - terminates the execution of the program.
+exit()
+
+ 
+
